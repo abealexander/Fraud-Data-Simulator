@@ -95,5 +95,9 @@ def generate_dataset(n_customers=10000, n_terminals=1000000, r=5):
 
 if __name__ == "__main__":
     (customer_profiles_table, terminal_profiles_table) = generate_dataset(n_customers=10000, n_terminals=100000, r=5)
-    customer_profiles_table.to_csv("data/customer_profiles.csv", index=False)  # Save to CSV
-    terminal_profiles_table.to_csv("data/terminal_profiles.csv", index=False)  # Save to CSV
+    customer_profiles_table.to_csv("data/customer_profiles.csv.gz", index=False, compression="gzip")
+    terminal_profiles_table.to_csv("data/terminal_profiles.csv.gz", index=False, compression="gzip")
+
+
+    # customer_profiles_table.to_pickle("data/customer_profiles.pkl", protocol=4)  # Save to PKL
+    # terminal_profiles_table.to_pickle("data/terminal_profiles.pkl", protocol=4)  # Save to PKL
